@@ -1,0 +1,24 @@
+Create DataBase ParqueaderoBD;
+
+Create Table TblRegistro(
+  Id_Registro Int Unsigned Auto_Increment Primary key,
+  Placa_Carro VarChar(6) Not Null,
+  Id_Tarifa Int Unsigned Not Null,
+  Fecha_Ingreso Datetime Not Null,
+  Fecha_Salida Datetime Not Null,
+  Id_Celda Int Unsigned Not Null,
+  Valor_Pago Int not Null,
+  Foreign Key(Id_Tarifa) References TblTarifas(Id_Tarifa),
+  Foreign Key(Id_Celda) References TblCeldas(Id_Celda),
+  );
+
+  Create Table TblTarifas(
+    Id_Tarifa Int Unsigned Auto_Increment Primary Key,
+    Valor_Tarifa Int Unsigned not Null,
+    Year Year Not Null,
+  );
+
+  Create Table TblCeldas(
+    Id_Celda Int Unsigned Auto_Increment Primary Key,
+    Disponible Enum('si', 'no') Not Null,
+  );
