@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from parqueaderoweb.views import Home, tarifas
+from parqueaderoweb.views import Home, tarifas, conductorView, registroView, celdasView, ticketsView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +23,8 @@ urlpatterns = [
     path('', Home),
 
     path('tarifas', tarifas),
+    path('conductor', conductorView,name="conductores"),
+    path('registro', registroView),
+    path('celda', celdasView,name="celdas"),
+    path('ticket', ticketsView,name="tickets"),
 ]
